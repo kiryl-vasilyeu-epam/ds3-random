@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Character from './Character';
+import { setAllFounded } from './helpers';
 
 function App() {
+  const [char] = useState(new Character('ada'));
+  console.log(char);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={() => {
+        setAllFounded(char);
+        console.log(char);
+      }}>set all</button>
+      <button onClick={() => {
+        char.updateRandomLevels(100);
+        console.log(char);
+      }}>lvl</button>
+      <button onClick={() => {
+        char.getRandomItems();
+        console.log(char);
+      }}>rnd</button>
     </div>
   );
 }
