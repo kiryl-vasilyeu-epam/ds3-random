@@ -105,6 +105,12 @@ export default class Levelization extends Component {
     });
   }
 
+  updateOneLvl = () => {
+    const { updateRandomLevels } = this.props;
+    const updated = updateRandomLevels(1);
+    this.setState({ lastUpdated: updated });
+  }
+
   updateLevels = () => {
     const { input } = this.state;
     const { updateRandomLevels } = this.props;
@@ -113,7 +119,7 @@ export default class Levelization extends Component {
   }
 
   render() {
-    const { className, updateRandomLvl } = this.props;
+    const { className } = this.props;
     const { input } = this.state;
 
     return (
@@ -125,7 +131,7 @@ export default class Levelization extends Component {
           </StatsContainer>
         </InfoContainer>
         <ControlsContainer>
-          <Button onClick={updateRandomLvl}>Update 1 lvl</Button>
+          <Button onClick={this.updateOneLvl}>Update 1 lvl</Button>
           <Input value={input} onChange={this.handleChange} />
           <Button onClick={this.updateLevels}>{`Update ${input} lvl's`}</Button>
         </ControlsContainer>

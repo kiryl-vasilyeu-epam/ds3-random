@@ -70,13 +70,6 @@ class App extends React.Component {
     this.updateChar();
   }
 
-  updateRandomLvl = () => {
-    const { char } = this.state;
-
-    char.updateRandomLvl();
-    this.updateChar();
-  }
-
   updateRandomLevels = (...args) => {
     const { char } = this.state;
 
@@ -129,7 +122,6 @@ class App extends React.Component {
             state={state}
             spellSlots={spellSlots}
             updateStats={this.updateStats}
-            updateRandomLvl={this.updateRandomLvl}
             updateRandomLevels={this.updateRandomLevels}
           />
           <ItemRandomizer
