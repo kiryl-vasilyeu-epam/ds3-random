@@ -21,14 +21,12 @@ const locations = {
   'Undead Settlement': [
     "Small Leather Shield",
     "Whip",
-    "Worker Garb",
     "Reinforced Club",
     "Blue Wooden Shield",
     "Great Scythe",
     "Caduceus Round Shield",
     "Hand Axe",
     "Caestus",
-    "Loincloth",
     "Red Hilted Halberd",
     "Saint's Talisman",
     "Large Club",
@@ -68,10 +66,6 @@ const locations = {
     "Seek Guidance",
   ],
 
-  'Catacombs of Carthus': [
-    "Old Sage's Blindfold",
-  ],
-
   'Smouldering Lake': [
     "Black Iron Greatshield",
     "Black Knight Greataxe",
@@ -87,11 +81,9 @@ const locations = {
     "Rotten Ghru Dagger",
     "Rotten Ghru Spear",
     "Scimitar",
-    "Vertebra Shackle",
   ],
 
   'Irithyll of the Boreal Valley': [
-    "Dragonslayer Greatarrow",
     "Dragonslayer Greatbow",
     "Great Heal",
     "Painting Guardian's Curved Sword",
@@ -185,7 +177,6 @@ const locations = {
     'Giant Door Shield',
     'Great Soul Dregs',
     'Projected Heal',
-    'Loincloth',
   ],
 
   'The Ringed City': [
