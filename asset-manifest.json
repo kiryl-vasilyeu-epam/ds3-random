@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ds3-random/static/css/main.a617e044.chunk.css",
+    "main.js": "/ds3-random/static/js/main.3efc121a.chunk.js",
+    "main.js.map": "/ds3-random/static/js/main.3efc121a.chunk.js.map",
+    "runtime-main.js": "/ds3-random/static/js/runtime-main.2185a97f.js",
+    "runtime-main.js.map": "/ds3-random/static/js/runtime-main.2185a97f.js.map",
+    "static/js/2.3621d5d7.chunk.js": "/ds3-random/static/js/2.3621d5d7.chunk.js",
+    "static/js/2.3621d5d7.chunk.js.map": "/ds3-random/static/js/2.3621d5d7.chunk.js.map",
+    "static/js/3.a8d7f7b2.chunk.js": "/ds3-random/static/js/3.a8d7f7b2.chunk.js",
+    "static/js/3.a8d7f7b2.chunk.js.map": "/ds3-random/static/js/3.a8d7f7b2.chunk.js.map",
+    "index.html": "/ds3-random/index.html",
+    "static/css/main.a617e044.chunk.css.map": "/ds3-random/static/css/main.a617e044.chunk.css.map",
+    "static/js/2.3621d5d7.chunk.js.LICENSE.txt": "/ds3-random/static/js/2.3621d5d7.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/ds3-random/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2185a97f.js",
+    "static/js/2.3621d5d7.chunk.js",
+    "static/css/main.a617e044.chunk.css",
+    "static/js/main.3efc121a.chunk.js"
+  ]
+}
