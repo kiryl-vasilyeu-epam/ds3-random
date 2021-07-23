@@ -146,7 +146,7 @@ export default class Character {
     );
     const randomItem = getRandomFromArray(possibleItems);
     // eslint-disable-next-line no-console
-    console.log({
+    console.log(itemType, {
       founded: this.founded,
       possibleItems,
       foundedItems,
@@ -160,16 +160,23 @@ export default class Character {
   getRandomSpells = (type) => {
     const spells = [];
     let slotsLeft = this.spellSlots;
-    if (!slotsLeft || !type) return spells;
     let stopper = 0;
     const spellTypes = catalystsToMagicPairs[type];
-    if (!this.founded.spells || !this.founded.spells[spellTypes]) return spells;
+    if (!this.founded.spells || !this.founded.spells[spellTypes] || !slotsLeft || !type) {
+      // eslint-disable-next-line no-console
+      console.log('no spells for catalyst!');
+      return spells;
+    }
     let possibleSpells = this.founded.spells[spellTypes].filter((spell) => {
       const { requirements: { Slots, ...rest } } = spell;
       return this.checkRequirements(rest) && Slots <= slotsLeft;
     });
 
-    if (!possibleSpells.length) return spells;
+    if (!possibleSpells.length) {
+      // eslint-disable-next-line no-console
+      console.log('no spells for catalyst matched by stats!');
+      return spells;
+    }
 
     do {
       stopper++;
@@ -183,6 +190,12 @@ export default class Character {
       slotsLeft -= spell.requirements.Slots;
       possibleSpells = possibleSpells.filter(({ name }) => name !== spell.name);
     } while (slotsLeft > 0 && possibleSpells.length && stopper < 20);
+    // eslint-disable-next-line no-console
+    console.log({
+      spells,
+      possibleSpells,
+      slots: this.spellSlots,
+    });
 
     return spells.map(({ name }) => name);
   }

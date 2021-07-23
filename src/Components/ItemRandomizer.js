@@ -68,7 +68,7 @@ export default class ItemRandomizer extends Component {
     return (
       <ItemsContainer>
         {spells.map((spell) => (
-          <ItemContainer>
+          <ItemContainer key={spell}>
             <HandContainer>
               <div>S:</div>
               {spell}
