@@ -73,7 +73,7 @@ export default class Levelization extends Component {
           <h4>{spellSlots}</h4>
         </StatContainer>
         {stats.map((stat) => (
-          <StatChangeContainer>
+          <StatChangeContainer key={stat}>
             <Button onClick={this.updateStat(stat, true)}>-</Button>
             <StatContainer>
               <StatName>{`${stat}:`}</StatName>

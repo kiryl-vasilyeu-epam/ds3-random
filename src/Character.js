@@ -136,23 +136,25 @@ export default class Character {
   getRandomItemByStatsMeet = (itemType, coeff) => {
     if (!this.founded[itemType]) return;
     const types = Object.keys(this.founded[itemType]);
-    const possibleFounded = {};
-    const possibleTypes = [];
+    const foundedItems = [];
     types.forEach((type) => {
       if (skippedTypes.includes(type)) return;
-      const possibleItems = this.founded[itemType][type].filter(
-        ({ requirements }) => this.checkRequirements(requirements, coeff),
-      );
-      if (!possibleItems.length) return;
-      possibleFounded[type] = possibleItems;
-      possibleTypes.push(type);
+      foundedItems.push(...this.founded[itemType][type]);
     });
-    if (!possibleTypes.length) return;
+    const possibleItems = foundedItems.filter(
+      ({ requirements }) => this.checkRequirements(requirements, coeff),
+    );
+    const randomItem = getRandomFromArray(possibleItems);
+    // eslint-disable-next-line no-console
+    console.log({
+      founded: this.founded,
+      possibleItems,
+      foundedItems,
+      randomItem,
+    });
 
-    const rType = getRandomFromArray(possibleTypes);
-    const possibleList = possibleFounded[rType];
     // eslint-disable-next-line consistent-return
-    return getRandomFromArray(possibleList);
+    return getRandomFromArray(possibleItems);
   }
 
   getRandomSpells = (type) => {
@@ -161,6 +163,7 @@ export default class Character {
     if (!slotsLeft || !type) return spells;
     let stopper = 0;
     const spellTypes = catalystsToMagicPairs[type];
+    if (!this.founded.spells || !this.founded.spells[spellTypes]) return spells;
     let possibleSpells = this.founded.spells[spellTypes].filter((spell) => {
       const { requirements: { Slots, ...rest } } = spell;
       return this.checkRequirements(rest) && Slots <= slotsLeft;

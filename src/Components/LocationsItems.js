@@ -22,7 +22,7 @@ const LocationHeader = styled.h2`
 const LocationItemContainer = styled.div`
   display: flex;
   flex-direction: row;
-  border-bottom: 2px solid ${(props) => (props.checked ? "blue" : "black")};
+  border-bottom: 2px solid ${(props) => (props.active ? "blue" : "black")};
   justify-content: center;
   align-items: center;
 `;
@@ -38,16 +38,16 @@ export default class LocationsItems extends Component {
       const locationsList = Object.keys(locations);
 
       return locationsList.map((locationName) => (
-        <Location>
+        <Location key={locationName}>
           <LocationHeader>{locationName}</LocationHeader>
           {locations[locationName].map((item) => {
             const checked = isItemInList(founded, item);
 
             return (
-              <LocationItemContainer checked={checked}>
+              <LocationItemContainer active={checked} key={item}>
                 <input
                   type="checkbox"
-                  checked={checked}
+                  defaultChecked={checked}
                   onClick={
                   checked ? this.removeFounded(item) : this.setFounded(item)
                   }

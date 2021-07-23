@@ -65,16 +65,16 @@ export default class SearchItems extends Component {
       const itemsList = Object.keys(itemsToRender);
 
       return itemsList.map((itemType) => (
-        <Item>
+        <Item key={itemType}>
           <ItemHeader>{itemType}</ItemHeader>
           {itemsToRender[itemType].map((item) => {
             const checked = isItemInList(founded, item.name);
 
             return (
-              <ItemItemContainer checked={checked}>
+              <ItemItemContainer checked={checked} key={item.name}>
                 <input
                   type="checkbox"
-                  checked={checked}
+                  defaultChecked={checked}
                   onClick={
                   checked ? this.removeFounded(item, itemType) : this.setFounded(item, itemType)
                   }
